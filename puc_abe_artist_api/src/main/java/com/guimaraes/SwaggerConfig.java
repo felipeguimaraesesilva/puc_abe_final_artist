@@ -3,6 +3,9 @@ package com.guimaraes;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.guimaraes.constant.AppConstants;
+import com.guimaraes.constant.DocConstants;
+
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -20,8 +23,8 @@ public class SwaggerConfig {
 
 		Docket docket = new Docket(DocumentationType.SWAGGER_2);
 
-		docket.select().apis(RequestHandlerSelectors.basePackage("com.guimaraes")).paths(PathSelectors.any()).build()
-				.apiInfo(this.informacoesApi().build());
+		docket.select().apis(RequestHandlerSelectors.basePackage(DocConstants.APP_BASE_PACKAGE))
+				.paths(PathSelectors.any()).build().apiInfo(this.informacoesApi().build());
 
 		return docket;
 	}
@@ -30,9 +33,9 @@ public class SwaggerConfig {
 
 		ApiInfoBuilder apiInfoBuilder = new ApiInfoBuilder();
 
-		apiInfoBuilder.title("Api-Library-Controller");
-		apiInfoBuilder.description("Api para realização de controle de biblioteca.");
-		apiInfoBuilder.version("1.0");
+		apiInfoBuilder.title(DocConstants.APP_TITLE);
+		apiInfoBuilder.description(DocConstants.APP_DESCRIPTION);
+		apiInfoBuilder.version(AppConstants.VERSION_V1);
 		apiInfoBuilder.contact(this.contato());
 
 		return apiInfoBuilder;
@@ -41,6 +44,6 @@ public class SwaggerConfig {
 
 	private Contact contato() {
 
-		return new Contact("Felipe Guimarães e Silva", null, "felipeguimaraesesilva@gmail.com");
+		return new Contact(DocConstants.APP_AUTHOR_NAME, null, DocConstants.APP_AUTHOR_EMAIL);
 	}
 }

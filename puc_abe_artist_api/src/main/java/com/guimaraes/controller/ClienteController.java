@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.guimaraes.constant.VersionConstants;
+import com.guimaraes.constant.AppConstants;
 import com.guimaraes.resource.ClienteResource;
 import com.guimaraes.services.ClienteService;
 
@@ -19,7 +19,7 @@ public class ClienteController {
 	private ClienteService clienteService;
 
 	private static final String RESOURCE_NAME = "/cliente";
-	private static final String CONTEXT_RESOURCE = "/" + VersionConstants.VERSION_1_0_0 + RESOURCE_NAME;
+	private static final String CONTEXT_RESOURCE = "/" + AppConstants.VERSION_V1 + RESOURCE_NAME;
 
 	@PostMapping(CONTEXT_RESOURCE)
 	public void insereNovoCliente(@RequestBody ClienteResource cliente) {

@@ -8,10 +8,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EnableJpaRepositories("com.guimaraes.repository")
 @EntityScan("com.guimaraes.entity")
-public class ArtistApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ArtistApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }
